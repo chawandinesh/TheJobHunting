@@ -181,6 +181,7 @@ function UserProfile(props) {
         setUser({...docSnap.data(), id: docSnap.id});
       });
   }, []);
+  console.log(data,'data')
   return (
     <ImageBackground
       source={require('../assets/grad.jpeg')}
@@ -389,7 +390,11 @@ function UserProfile(props) {
                 fontWeight: 'bold',
                 color: 'white',
               }}>
-              {data.description}
+              {
+                data.certification && data.experience && data.currentCompany ?
+                `I certified as ${data.certification} and working in ${data.currentCompany} and have ${data.experience} experience`
+                : null
+              }
             </Text>
           </View>
         </View>

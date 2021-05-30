@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "24930379635",
+    "project_id": "thejobhunting-642e3",
+    "storage_bucket": "thejobhunting-642e3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24930379635:android:37c4a015589d6c280b4706",
+        "android_client_info": {
+          "package_name": "com.thejobhunting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24930379635-falga76u7h388g2ncf86ubeh8ur9kdm2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoMgtu3Jy9nVCb280iz1hyG4vek8k_UIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24930379635-falga76u7h388g2ncf86ubeh8ur9kdm2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

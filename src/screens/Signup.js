@@ -55,12 +55,13 @@ function Signup(props) {
     userName: '',
     password: '',
     confirmPassword: '',
-    gender: 'male',
+    type: 'recruiter',
   });
 
+
   const handleRegister = () => {
-    const {email, password, confirmPassword, gender, userName} = signupState;
-    if (!email || !password || !confirmPassword || !gender || !userName) {
+    const {email, password, confirmPassword, type, userName} = signupState;
+    if (!email || !password || !confirmPassword || !type || !userName) {
       Toast.show({
         type: 'error',
         position: 'top',
@@ -94,8 +95,7 @@ function Signup(props) {
               email: signupState.email,
               password: signupState.password,
               createdAt: firebaseFirestore.FieldValue.serverTimestamp(),
-              age: null,
-              gender: signupState.gender,
+              type: signupState.type,
               description: '',
               image: '',
               likes: [],
@@ -112,6 +112,10 @@ function Signup(props) {
                 disLikes: [],
                 approach: [],
               },
+              qualification:'',
+              experience:'',
+              currentCompany:'',
+              certification:'',
               is_active: true,
             })
             .then(result => {
@@ -422,10 +426,10 @@ function Signup(props) {
                   fontSize: 25,
                   // backgroundColor:'pink'
                 }}>
-                Recruiter
+                recruiter
               </Text>
               <TouchableOpacity
-                onPress={() => setSignupState({...signupState, gender: 'male'})}
+                onPress={() => setSignupState({...signupState, type: 'recruiter'})}
                 style={{
                   marginLeft: 5,
                   width: width * 0.09,
@@ -438,7 +442,7 @@ function Signup(props) {
                   justifyContent: 'center',
                   alignSelf: 'center',
                 }}>
-                {signupState.gender === 'male' ? (
+                {signupState.type === 'recruiter' ? (
                   <Icon type="FontAwesome" name="check" />
                 ) : null}
               </TouchableOpacity>
@@ -459,7 +463,7 @@ function Signup(props) {
               </Text>
               <TouchableOpacity
                 onPress={() =>
-                  setSignupState({...signupState, gender: 'female'})
+                  setSignupState({...signupState, type: 'jobSeeker'})
                 }
                 style={{
                   marginLeft: 10,
@@ -471,7 +475,7 @@ function Signup(props) {
                   borderColor: '#162842',
                   alignSelf: 'center',
                 }}>
-                {signupState.gender === 'female' ? (
+                {signupState.type === 'jobSeeker' ? (
                   <Icon type="FontAwesome" name="check" />
                 ) : null}
               </TouchableOpacity>

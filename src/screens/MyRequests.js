@@ -213,7 +213,7 @@ const AllDetails = props => {
         <View>
           <TouchableOpacity
             style={{justifyContent: 'center', padding: 5}}
-            onPress={() => props.navigation.navigate('Profile')}>
+            onPress={() => props.navigation.navigate('MainProfile')}>
             {!profileInfo.image ? (
               <Icon name="user" type="FontAwesome" style={{marginRight: 10, color:'#162842',}} />
             ) : (

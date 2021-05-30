@@ -20,7 +20,7 @@ const Details = props => {
   const isFocused = useIsFocused();
   const control = async () => {};
   const [loggedInUser, setLoggedInUser] = useState({});
-  const [users, setUsers] = useState({});
+  const [users, setUsers] = useState([]);
   /**
    * all users  and login user
    */
@@ -54,9 +54,9 @@ const Details = props => {
     getAsyncData();
   }, [isFocused, props]);
 
-  const getImage = gender => {
-    switch (gender) {
-      case 'male':
+  const getImage = type => {
+    switch (type) {
+      case "recruiter":
         return (
           <Image
             style={{
@@ -65,11 +65,11 @@ const Details = props => {
               borderWidth: 2,
               borderRadius: height * 0.05,
             }}
-            source={require('../assets/prf.png')}
+            source={require('../assets/rec.png')}
           />
         );
 
-      case 'female':
+      case 'jobSeeker':
         return (
           <Image
             style={{
@@ -78,7 +78,7 @@ const Details = props => {
               borderWidth: 2,
               borderRadius: height * 0.05,
             }}
-            source={require('../assets/fml.png')}
+            source={require('../assets/jobseeker.png')}
           />
         );
 
@@ -86,7 +86,6 @@ const Details = props => {
         break;
     }
   };
-
   const Data = ({item, index}) => {
     return (
       <TouchableOpacity
@@ -126,7 +125,7 @@ const Details = props => {
                 alignItems: 'center',
                 justifyContent: 'center',
               }}>
-              {getImage(item.gender)}
+              {getImage(item.type)}
             </View>
           )}
           {/* </View> */}
@@ -135,9 +134,9 @@ const Details = props => {
             <Text style={styles.info}>Name:</Text>
             <View style={styles.line}></View>
             <Text style={styles.title}>{item.userName}</Text>
-            <Text style={styles.info}>Age:</Text>
+            <Text style={styles.info}>Qualification:</Text>
             <View style={styles.line}></View>
-            <Text style={styles.ageType}>{item.age}</Text>
+            <Text style={styles.ageType}>{item.qualification}</Text>
           </View>
         </View>
       </TouchableOpacity>
@@ -150,6 +149,16 @@ const Details = props => {
   //     cleanup
   //   }
   // }, [props])
+
+  // console.log(loggedInUser, users,'users')
+  console.log( users
+    .filter(e => e.id !== loggedInUser.id)
+    .filter(
+      e =>
+        loggedInUser &&
+        Array.isArray(loggedInUser.blocks) &&
+        !loggedInUser.blocks.includes(e.id),
+    ))
 
   // console.log( users.filter((e) => loggedInUser  && Array.isArray(loggedInUser.blocks) && !loggedInUser.blocks.includes(e.id) ) ,'loginuser')
   return (
@@ -209,7 +218,6 @@ const Details = props => {
                     Array.isArray(loggedInUser.blocks) &&
                     !loggedInUser.blocks.includes(e.id),
                 )
-                .filter((e) => e.gender !== loggedInUser.gender)
             }
             renderItem={Data}
             keyExtractor={(item, index) => index.toString()}

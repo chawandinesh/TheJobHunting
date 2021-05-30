@@ -146,7 +146,7 @@ function ProfilePage(props) {
                 onPress={() => props.navigation.goBack()}>
                 <AntIcon
                   name="arrowleft"
-                  style={{fontSize: height * 0.05, color: '#162842',}}
+                  style={{fontSize: height * 0.05, color: '#162842'}}
                 />
               </TouchableOpacity>
             </View>
@@ -181,7 +181,7 @@ function ProfilePage(props) {
               ) : (
                 <Icon
                   name="edit"
-                  style={{color: '#162842',}}
+                  style={{color: '#162842'}}
                   type="AntDesign"
                   fontSize={height * 0.04}
                 />
@@ -209,8 +209,7 @@ function ProfilePage(props) {
                 justifyContent: 'center',
               }}>
               {editable ? (
-                <TouchableOpacity
-                  onPress={() => pickImage()}
+                <View
                   style={{
                     position: 'absolute',
                     bottom: 4,
@@ -222,30 +221,34 @@ function ProfilePage(props) {
                     type="FontAwesome"
                     style={{fontSize: height * 0.04, color: '#fff'}}
                   />
-                </TouchableOpacity>
+                </View>
               ) : null}
               {user.image ? (
-                <Image
-                  source={{uri: user.image}}
-                  style={{
-                    width: width * 0.38,
-                    height: height * 0.17,
-                    borderRadius: height * 0.03,
-                  }}
-                />
+                <View>
+                  <Image
+                    source={{uri: user.image}}
+                    style={{
+                      width: width * 0.38,
+                      height: height * 0.17,
+                      borderRadius: height * 0.03,
+                    }}
+                  />
+                </View>
               ) : (
-                <Image
-                  style={{
-                    width: width * 0.28,
-                    height: height * 0.13,
-                    alignSelf: 'center',
-                  }}
-                  source={
-                    user.gender === 'male'
-                      ? require('../assets/prf.png')
-                      : require('../assets/fml.png')
-                  }
-                />
+                <View>
+                  <Image
+                    style={{
+                      width: width * 0.28,
+                      height: height * 0.13,
+                      alignSelf: 'center',
+                    }}
+                    source={
+                      user.gender === 'male'
+                        ? require('../assets/prf.png')
+                        : require('../assets/fml.png')
+                    }
+                  />
+                </View>
               )}
             </View>
           </View>
@@ -309,7 +312,6 @@ function ProfilePage(props) {
                   borderRadius: height * 0.02,
                   alignSelf: 'center',
                   backgroundColor: 'rgba(255, 255, 255, 0.9)',
-                  
                 }}
               />
             ) : (
@@ -550,7 +552,6 @@ function ProfilePage(props) {
               <View style={style.cardA}>
                 <Text
                   style={{
-                    
                     width: width * 0.4,
                     height: height * 0.04,
                     fontSize: 16,

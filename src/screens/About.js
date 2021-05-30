@@ -19,7 +19,7 @@ export default function AllDetails(props) {
       style={{width, height, alignItems: 'center', justifyContent: 'center'}}
       source={require('../assets/grad.jpeg')}>
           <TouchableOpacity onPress={() => props.navigation.openDrawer()} style={{position:'absolute', top: 25,left:20}}>
-              <Icon name="menu" type="Entypo" style={{color:'#fff'}}/>
+              <Icon name="menu" type="Entypo" style={{color:'#000'}}/>
           </TouchableOpacity>
       <View
         style={{
@@ -28,7 +28,7 @@ export default function AllDetails(props) {
           alignItems: 'center',
           padding: height * 0.02,
           //   justifyContent:'center',
-        //   backgroundColor: 'rgba(0,0,0,0.5)',
+          backgroundColor: 'rgba(0,0,0,0.5)',
         }}>
         <Text
           style={{fontSize: height * 0.04, fontWeight: 'bold', color: '#fff', marginBottom: height * 0.05}}>
@@ -42,7 +42,7 @@ export default function AllDetails(props) {
             color: '#ebe459',
             textAlign: 'center',
           }}>
-          This is simple, amazing and ads free app for functions to help you to find your match.
+          This is simple, amazing and ads free app for functions to help you to find your Job.
         </Text>
         <Text
           style={{
@@ -52,7 +52,7 @@ export default function AllDetails(props) {
             textAlign: 'center',
             paddingTop: height * 0.04,
           }}>
-          In this app, You will get the details of the person and you can check their profile.
+          In this app, You will get the details of the Job and you can check the details.
         </Text>
         <Text
           style={{
@@ -62,7 +62,7 @@ export default function AllDetails(props) {
             textAlign: 'center',
             paddingTop: height * 0.05,
           }}>
-          On the basis of their profile you can choose to approach them or not.{'\n'}
+          On the basis of their profile you can choose to apply them or not.{'\n'}
         </Text>
         <Text
           style={{

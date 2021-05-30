@@ -43,11 +43,11 @@ export default function AboutUs(props) {
             margin: height * 0.01,
           }}
           resizeMode="stretch"
-          source={require('../assets/hrtt.png')}
+          source={require('../assets/rec.png')}
         />
         
         <Text style={[{...styles.modalText, fontSize: 20, fontWeight: 'bold'}]}>
-          Enjoying Dating App?
+          Enjoying The Job Hunting App?
         </Text>
         <Text style={{fontSize: 15}}>Tap a star to rate it on the</Text>
         <Text style={{fontSize: 15}}>App Store.</Text>
